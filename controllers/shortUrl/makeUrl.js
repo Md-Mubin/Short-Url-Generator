@@ -26,7 +26,7 @@ const makeUrl = async (req, res) => {
         return res.render("homePage" ,{
             msg: "Short Url Created Successfully",
             bigUrl: existBigUrl.bigUrl,
-            shortUrl: `http://localhost:8000/${existBigUrl.shortUrl}`
+            shortUrl: `${BASE_URL}/${existBigUrl.shortUrl}`
         })
     }
 
@@ -40,7 +40,7 @@ const makeUrl = async (req, res) => {
     res.render("homepage" , {
         msg: "Short Url Created Successfully",
         bigUrl: newShortUrl.bigUrl,
-        shortUrl: `http://localhost:8000/${newShortUrl.shortUrl}`
+        shortUrl: `${BASE_URL}/${newShortUrl.shortUrl}`
     })
 }
 
