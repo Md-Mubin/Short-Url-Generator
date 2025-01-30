@@ -1,6 +1,6 @@
 <%- include('./particals/header.ejs') %>
 
-            <form class="generateUrlForm" action="<%= process.env.BASE_URL %>/api/v1/shortUrl/generateUrl" method="post">
+            <form class="generateUrlForm" action="https://short-url-generator-tkob.onrender.com/api/v1/shortUrl/generateUrl" method="post">
                 <h1>Short URL Generator</h1>
                 <input required type="text" class="input" placeholder="Enter your long URL" name="bigUrl"
                     value="<%= locals.bigUrl %>">
