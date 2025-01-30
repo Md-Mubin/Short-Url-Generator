@@ -26,7 +26,7 @@ const makeUrl = async (req, res) => {
         return res.render("homePage" ,{
             msg: "Short Url Created Successfully",
             bigUrl: existBigUrl.bigUrl,
-            shortUrl: `http://mubin/${existBigUrl.shortUrl}`
+            shortUrl: `https://mubin/${existBigUrl.shortUrl}`
         })
     }
 
@@ -37,10 +37,10 @@ const makeUrl = async (req, res) => {
 
     newShortUrl.save()
 
-    res.render("homepage" , {
+    res.render("homePage" , {
         msg: "Short Url Created Successfully",
         bigUrl: newShortUrl.bigUrl,
-        shortUrl: `http://mubin//${newShortUrl.shortUrl}`
+        shortUrl: `https://mubin//${newShortUrl.shortUrl}`
     })
 }
 
