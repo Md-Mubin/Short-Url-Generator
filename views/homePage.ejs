@@ -1,0 +1,37 @@
+<%- include('./particals/header.ejs') %>
+
+            <form class="generateUrlForm" action="http://localhost:8000/api/v1/shortUrl/generateUrl" method="post">
+                <h1>Short URL Generator</h1>
+                <input required type="text" class="input" placeholder="Enter your long URL" name="bigUrl"
+                    value="<%= locals.bigUrl %>">
+                <button type="submit" class="generateButton">Generate</button>
+           
+            </form>
+
+            <% if (locals.shortUrl) { %>
+
+                <div class="shortUrlContainer">
+                    <p>Your Short URL:</p>
+                    <ul class="shortUrlArea">
+                        <a href="<%= locals.shortUrl %>" target="_blank" class="inputShortUrl">
+                            <%= locals.shortUrl %>
+                        </a>
+                        <button class="copyButton" onclick="copyUrl()">Copy</button>
+                    </ul>
+                    <button onclick="goBackHomeButton()" class="newGenerateButton">New Generate</button>
+           
+                </div>
+
+                <% } %>
+        </div>
+    </section>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+    window.errorMessage = "<%= locals.error || '' %>";
+    window.successMessage = "<%= locals.msg || '' %>";
+</script>
+<script src="/js/script.js"></script>
+
+</html>

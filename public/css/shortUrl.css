@@ -1,0 +1,207 @@
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "future";
+  src: url('../font/Reospec.otf');
+}
+
+a{
+  text-decoration: none;
+}
+
+body {
+  background-color: #f3f4f6;
+}
+
+nav{
+  position: absolute;
+  width: 100%;
+  padding: 30px 0px 30px;
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0px 5px 20px rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid #f0f0f08c;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+nav ul{
+  display: flex; 
+  justify-content: center;
+  gap: 50px;
+}
+
+nav ul a{
+  font-family: "future";
+  font-weight: 400;
+  text-decoration: none;
+  display: inline;
+  color: white;
+  font-size: 30px;
+  transition: all linear 0.1s;
+}
+
+nav ul a:hover{
+  color: #ffd753;
+  cursor: pointer;
+  filter: drop-shadow(2px 2px 2px #89e4ff);
+}
+
+.generateUrlForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1{
+  font-family: "future";
+  font-size: 35px;
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.banner{
+  background-image: url('/img/banner2.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  padding-top: 200px;
+}
+
+.card {
+  margin: 0 auto ;
+  width: 600px;
+  padding: 60px 40px;
+  border-radius: 10px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid #ffffff66;
+  box-shadow: inset 0px 0px 25px rgb(255, 255, 255, 0.3);
+}
+
+.input,
+.inputShortUrl {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+.generateButton,
+.copyButton,
+.newGenerateButton {
+  padding: 10px 20px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.generateButton:hover {
+  background-color: #2563eb;
+}
+
+.copyButton {
+  background-color: #10b981;
+  transition: all linear 0.2s;
+}
+
+.copyButton:hover {
+  background-color: #18da99;
+}
+
+.newGenerateButton {
+  background-color: #6b7280;
+  transition: all linear 0.2s;
+}
+
+.newGenerateButton:hover {
+  background-color: #8d96a7;
+}
+
+.shortUrlContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shortUrlContainer p{
+  font-family: "future";
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.inputShortUrl {
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  background: #fff;
+  border: none;
+  font-size: 20px;
+  text-decoration: none;
+  color: #000;
+  transition: all linear 0.2s;
+}
+
+.inputShortUrl:hover{
+  color: #3b82f6;
+}
+
+.shortUrlArea {
+  display: flex;
+  gap: 10px;
+}
+
+/* ============ for login register form ============ */
+
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 50px;
+}
+
+.errorMsg{
+  font-size: 16px;
+  color: #fff;
+  position: absolute;
+  top: 60%;
+  right: 50px;
+  animation: focus 0.5s linear alternate infinite;
+}
+
+@keyframes focus {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 100;
+  }
+}
+
+.card .goBackHome{
+  font-family: "future";
+  font-weight: 400;
+  font-size: 20px;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.card .goBackHome:hover{
+  color: #ffd753;
+  cursor: pointer;
+  filter: drop-shadow(2px 3px 2px #000);
+}
