@@ -14,4 +14,5 @@ app.use(router)
 dbConnect()
 
 // =============== local
-app.listen(8000, ()=> console.log("T$rm@?&l ===== &&&&?@cut#$@D"))
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, ()=> console.log("T$rm@?&l ===== &&&&?@cut#$@D"))
