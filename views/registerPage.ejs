@@ -1,10 +1,10 @@
 <%- include('./particals/header.ejs') %>
 
-            <form class="form" method="post">
+            <form class="form" method="post" action="/api/v1/auth/register">
                 <h1>Register</h1>
-                <input type="text" class="input" placeholder="Your Name">
-                <input type="email" class="input" placeholder="Your Email">
-                <input type="password" class="input" placeholder="•••••••••">
+                <input type="text" class="input" placeholder="Your Name" name="userName">
+                <input type="email" class="input" placeholder="Your Email" name="email">
+                <input type="password" class="input" placeholder="•••••••••" name="pass">
                 <button type="submit" class="generateButton">Register</button>
             </form>
             <div class="goBackHome" onclick="goBackHomeButton()">Go Back To Generate Page</div>
@@ -12,6 +12,11 @@
     </section>
 </body>
 
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+    window.errorMessage = "<%= locals.error || '' %>";
+    window.successMessage = "<%= locals.msg || '' %>";
+</script>
 <script src="/js/script.js"></script>
 
 </html>
