@@ -45,7 +45,7 @@ const register = async (req, res) => {
         }
 
         // if user with email already exists
-        const existUser = await registerSchema.find({email})
+        const existUser = await registerSchema.findOne({email})
 
         if(existUser){
             return res.render("registerPage",{
