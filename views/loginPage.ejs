@@ -2,8 +2,8 @@
 
             <form class="form" method="post" action="<%= process.env.BASE_URL_API%>/auth/login">
                 <h1>Login</h1>
-                <input type="email" class="input" placeholder="Your Login Email">
-                <input type="password" class="input" placeholder="•••••••••" >
+                <input type="email" class="input" placeholder="Your Login Email" name="email">
+                <input type="password" class="input" placeholder="•••••••••" name="pass">
                 <button type="submit" class="generateButton">Login</button>
             </form>
             <div class="goBackHome" onclick="goBackHomeButton()">Go Back To Generate Page</div>
@@ -11,6 +11,11 @@
     </section>
 </body>
 
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+    window.errorMessage = "<%= locals.error || '' %>";
+    window.successMessage = "<%= locals.msg || '' %>";
+</script>
 <script src="/js/script.js"></script>
 
 </html>
