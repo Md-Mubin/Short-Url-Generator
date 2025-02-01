@@ -1,5 +1,7 @@
-// =============== All Variables
+// dotenv import
 require("dotenv").config()
+
+// =============== All Variables
 const express = require("express")
 const router = require("./route")
 const dbConnect = require("./config/dbConnect")
