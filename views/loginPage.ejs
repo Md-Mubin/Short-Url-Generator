@@ -3,7 +3,17 @@
             <form class="form" method="post" action="<%= process.env.BASE_URL_API%>/auth/login">
                 <h1>Login</h1>
                 <input type="email" class="input" placeholder="Your Login Email" name="email">
-                <input type="password" class="input" placeholder="•••••••••" name="pass">
+                <div style="position: relative;">
+                    <input type="password" class="input passInput" placeholder="•••••••••" name="pass">
+                    <div class="passButtons" style="position: absolute; top: 10px; right: 10px;">
+                        <button type="button" class="showBtn" style="background-color: transparent; border: none; box-shadow: none; font-size: 20px; cursor: pointer;">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" class="notShowBtn" style="display: none;">
+                            <i class="fa-regular fa-eye-slash"></i>
+                        </button>
+                    </div>
+                </div>
                 <button type="submit" class="generateButton">Login</button>
             </form>
             <div class="goBackHome" onclick="goBackHomeButton()">Go Back To Generate Page</div>
