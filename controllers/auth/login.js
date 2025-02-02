@@ -6,13 +6,15 @@ const login = async (req, res) => {
     try {
         if(!email){
             return res.render("loginPage", {
-                error : "Email required"
+                error : "Email required",
+                email, pass
             })
         }
     
         if(!pass){
             return res.render("loginPage", {
-                error : "Password required"
+                error : "Password required",
+                email, pass
             })
         }
     
@@ -20,13 +22,15 @@ const login = async (req, res) => {
     
         if(!registeredUser){
             return res.render("loginPage", {
-                error : "No User Found"
+                error : "No User Found",
+                email, pass
             })
         }
     
         if(registeredUser.pass !== pass){
             return res.render("loginPage", {
-                error : "No User Found"
+                error : "No User Found",
+                email, pass
             })
         }
     
