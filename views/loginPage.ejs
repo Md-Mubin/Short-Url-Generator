@@ -1,31 +1,41 @@
 <%- include('./particals/header.ejs') %>
 
-            <form class="form" method="post" action="<%= process.env.BASE_URL_API%>/auth/login">
-                <h1>Login</h1>
-                <input type="email" class="input" placeholder="Your Login Email" name="email" value="<%= locals.email %>">
-                <div style="position: relative;">
-                    <input type="password" class="input passInput" placeholder="•••••••••" name="pass" value="<%= locals.pass %>">
-                    <div class="passButtons" style="position: absolute; top: 10px; right: 10px;">
-                        <button type="button" class="showBtn" style="background-color: transparent; border: none; box-shadow: none; font-size: 20px; cursor: pointer;">
-                            <i class="fa-regular fa-eye"></i>
-                        </button>
-                        <button type="button" class="notShowBtn" style="display: none;">
-                            <i class="fa-regular fa-eye-slash"></i>
-                        </button>
-                    </div>
-                </div>
-                <button type="submit" class="generateButton">Login</button>
-            </form>
-            <div class="goBackHome" onclick="goBackHomeButton()">Go Back To Generate Page</div>
+    <form class="form" method="post" action="<%= process.env.BASE_URL_API%>/auth/login">
+        <h1>Login</h1>
+
+        <!-- ================= login email part ================= -->
+        <input type="email" class="input" placeholder="Your Login Email" name="email" value="<%= locals.email %>">
+
+        <!-- ================= login password part ================= -->
+        <div style="position: relative;">
+            <input type="password" class="input passInput" placeholder="•••••••••" name="pass"
+                value="<%= locals.pass %>">
+
+            <!-- pass show not show part -->
+            <div class="passButtons" style="position: absolute; top: 10px; right: 10px;">
+                <button type="button" class="showBtn"
+                    style="background-color: transparent; border: none; box-shadow: none; font-size: 20px; cursor: pointer;">
+                    <i class="fa-regular fa-eye"></i>
+                </button>
+                <button type="button" class="notShowBtn" style="display: none;">
+                    <i class="fa-regular fa-eye-slash"></i>
+                </button>
+            </div>
         </div>
+
+        <!-- ========== submit button ========== -->
+        <button type="submit" class="generateButton">Login</button>
+    </form>
+    <div class="goBackHome" onclick="goBackHomeButton()">Go Back To Generate Page</div>
+    </div>
     </section>
-</body>
+    </body>
 
-<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-<script>
-    window.errorMessage = "<%= locals.error || '' %>";
-    window.successMessage = "<%= locals.msg || '' %>";
-</script>
-<script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+        window.errorMessage = "<%= locals.error || '' %>";
+        window.successMessage = "<%= locals.msg || '' %>";
+    </script>
+    <script src="/js/script.js"></script>
 
-</html>
+    </html>
