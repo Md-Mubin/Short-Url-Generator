@@ -10,28 +10,32 @@ const register = async (req, res) => {
         // if user name is empty
         if (!userName) {
             return res.render("registerPage",{
-                error: "Name Required"
+                error: "Name Required",
+                userName, email, pass
             })
         }
 
         // if email is empty
         if (!email) {
             return res.render("registerPage",{
-                error: "Email Required"
+                error: "Email Required",
+                userName, email, pass
             })
         }
 
         // if email is not  validated
         if (!emailValidator(email)) {
             return res.render("registerPage",{
-                error: "Email is not Validated"
+                error: "Email is not Validated",
+                userName, email, pass
             })
         }
 
         // if password is empty
         if (!pass) {
             return res.render("registerPage",{
-                error: "Password Required"
+                error: "Password Required",
+                userName, email, pass
             })
         }
 
@@ -40,7 +44,8 @@ const register = async (req, res) => {
 
         if (passwordValidateResult) {
             return res.render("registerPage",{
-                error: passwordValidateResult
+                error: passwordValidateResult,
+                userName, email, pass
             })
         }
 
@@ -49,7 +54,8 @@ const register = async (req, res) => {
 
         if(existUser){
             return res.render("registerPage",{
-                error: "Email alredy in use"
+                error: "Email alredy in use",
+                userName, email, pass
             })
         }
         
@@ -62,12 +68,14 @@ const register = async (req, res) => {
 
         // register successfull massage
         res.render("registerPage",{
-            msg: "Register Successfull!"
+            msg: "Register Successfull!",
+            userName, email, pass
         })
 
     } catch (error) {
-        res.render({
-            error: "Server Error"
+        res.render("registerPage",{
+            error: "Server Error",
+            userName, email, pass
         })
     }
 }
