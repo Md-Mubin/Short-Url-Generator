@@ -26,7 +26,7 @@ const register = async (req, res) => {
         // if email is not  validated
         if (!emailValidator(email)) {
             return res.render("registerPage",{
-                error: "Email is not Validated",
+                emailError: "Email is not Validated",
                 userName, email, pass
             })
         }
@@ -44,7 +44,7 @@ const register = async (req, res) => {
 
         if (passwordValidateResult) {
             return res.render("registerPage",{
-                error: passwordValidateResult,
+                passError: passwordValidateResult,
                 userName, email, pass
             })
         }

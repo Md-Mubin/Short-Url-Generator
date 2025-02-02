@@ -2,9 +2,23 @@
 
             <form class="form" method="post" action="<%= process.env.BASE_URL_API %>/auth/register">
                 <h1>Register</h1>
-                <input type="text" class="input" placeholder="Your Name" name="userName">
-                <input type="email" class="input" placeholder="Your Email" name="email">
-                <input type="password" class="input" placeholder="•••••••••" name="pass">
+                <input type="text" class="input" placeholder="Your Name" name="userName" value="<%= locals.userName %>">
+                <div style="position: relative;">
+                    <input type="email" class="input" placeholder="Your Email" name="email" value="<%= locals.email %>">
+                    <div style="position: absolute; top: -25px; right: 10px; color: white; font-size: 20px;"><%= locals.emailError %></div>
+                </div>
+                <div style="position: relative;">
+                    <input type="password" class="input passInput" placeholder="•••••••••" name="pass" value="<%= locals.pass %>">
+                    <div style="position: absolute; top: -25px; right: 0; color: white; font-size: 20px;"><%= locals.passError %></div>
+                    <div class="passButtons" style="position: absolute; top: 10px; right: 10px;">
+                        <button type="button" class="showBtn" style="background-color: transparent; border: none; box-shadow: none; font-size: 20px; cursor: pointer;">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" class="notShowBtn" style="display: none;">
+                            <i class="fa-regular fa-eye-slash"></i>
+                        </button>
+                    </div>
+                </div>
                 <button type="submit" class="generateButton">Register</button>
             </form>
             <div class="goBackHome" onclick="goBackHomeButton()">Go Back To Generate Page</div>

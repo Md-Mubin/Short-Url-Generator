@@ -53,3 +53,21 @@ document.addEventListener("DOMContentLoaded", function () {
         showToast(window.successMessage, "success");
     }
 });
+
+// show not show password
+
+const showPass = document.querySelector(".showBtn")
+const notShowPass = document.querySelector(".notShowBtn")
+const passInput = document.querySelector(".passInput")
+
+showPass.addEventListener("click", ()=>{
+    notShowPass.style = "display:block; background-color: transparent; border: none; font-size: 20px; cursor: pointer;";
+    showPass.style = "display:none",
+    passInput.type = "text"
+})
+
+notShowPass.addEventListener("click", ()=>{
+    showPass.style = "display:block; background-color: transparent; border: none; font-size: 20px; cursor: pointer;";
+    notShowPass.style = "display:none",
+    passInput.type = "password"
+})
