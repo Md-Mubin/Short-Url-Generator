@@ -27,12 +27,7 @@ const login = async (req, res) => {
             })
         }
     
-        if(registeredUser.pass !== pass){
-            return res.render("loginPage", {
-                error : "No User Found",
-                email, pass
-            })
-        }
+        
     
         res.send(registeredUser)
     } catch (error) {
