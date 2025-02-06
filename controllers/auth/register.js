@@ -1,6 +1,8 @@
 const emailValidator = require("../../helpers/emailValidator")
 const passwordValidator = require("../../helpers/passwordValidator")
 const registerSchema = require("../../modal/registerSchema")
+const bcrypt = require("bcrypt") 
+const saltRound = 10
 
 const register = async (req, res) => {
     const { userName, email, pass } = req.body
@@ -58,19 +60,23 @@ const register = async (req, res) => {
                 userName, email, pass
             })
         }
+
+        bcrypt.hash(pass, saltRound, function(err, hash) {
+            
+            // create user
+            const userCreate = registerSchema({
+                userName, email, pass : hash
+            })
+    
+            userCreate.save()
+    
+            // register successfull massage
+            res.render("registerPage",{
+                msg: "Register Successfull!",
+                userName, email, pass
+            })
+        })
         
-        // create user
-        const userCreate = registerSchema({
-            userName, email, pass
-        })
-
-        userCreate.save()
-
-        // register successfull massage
-        res.render("registerPage",{
-            msg: "Register Successfull!",
-            userName, email, pass
-        })
 
     } catch (error) {
         res.render("registerPage",{
