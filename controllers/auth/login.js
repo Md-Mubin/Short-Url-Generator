@@ -1,4 +1,6 @@
 const registerSchema = require("../../modal/registerSchema")
+const bcrypt = require("bcrypt") 
+const jst = require("jsonwebtoken")
 
 const login = async (req, res) => {
     const {email , pass} = req.body
@@ -27,7 +29,14 @@ const login = async (req, res) => {
             })
         }
     
-        
+        const loggedUser = bcrypt.compare(pass , registeredUser.pass)
+
+        if(!loggedUser){
+            return res.render("loginPage",{
+                error : "Something went wrong",
+                email, pass
+            })
+        }
     
         res.send(registeredUser)
     } catch (error) {
