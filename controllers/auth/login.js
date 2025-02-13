@@ -1,6 +1,6 @@
 const registerSchema = require("../../modal/registerSchema")
 const bcrypt = require("bcrypt") 
-const jst = require("jsonwebtoken")
+const jwt = require("jsonwebtoken")
 
 const login = async (req, res) => {
     const {email , pass} = req.body
@@ -20,6 +20,7 @@ const login = async (req, res) => {
             })
         }
     
+        // ========= registered user
         const registeredUser = await registerSchema.findOne({email})
     
         if(!registeredUser){
@@ -29,16 +30,34 @@ const login = async (req, res) => {
             })
         }
     
-        const loggedUser = bcrypt.compare(pass , registeredUser.pass)
+        // ========= compare Password
+        const comparePass = bcrypt.compare(pass , registeredUser.pass)
 
-        if(!loggedUser){
+        if(!comparePass){
             return res.render("loginPage",{
                 error : "Something went wrong",
                 email, pass
             })
         }
+
+        // ========= tokken
+        const access_token = jwt.sign({
+            data:{
+                id : registeredUser._id,
+                email : registeredUser.email
+            }
+        }, process.env.ACSTOKEN, { expiresIn : "1h" })
+
+        if(!access_token){
+            return res.render("loginPage",{
+                error : "Something went wrong",
+                email, pass
+            })
+        }
+
+        const logedUser = await registerSchema.findOne({email : registeredUser.email}).select("-pass")
     
-        res.send(registeredUser)
+        res.cookie("access_token", access_token).send({ msg:"Login Succesfull", logedUser, access_token})
     } catch (error) {
         res.status(400).send("Server Error!")
     }
