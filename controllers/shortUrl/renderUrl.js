@@ -8,7 +8,7 @@ const renderUrl = async (req,res)=>{
     if(!existUrl){
         return res.render("noPage")
     }
-console.log(existUrl)
+
     return res.redirect(existUrl.bigUrl)
 }
 
