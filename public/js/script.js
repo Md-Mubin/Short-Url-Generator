@@ -55,22 +55,20 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // show not show password
-
-
-function showBtn(){
+function showBtn() {
     const showPass = document.querySelector(".showBtn")
     const notShowPass = document.querySelector(".notShowBtn")
     const passInput = document.querySelector(".passInput")
     notShowPass.style = "display:block; background-color: transparent; border: none; font-size: 20px; cursor: pointer;";
     showPass.style = "display:none",
-    passInput.type = "text"
+        passInput.type = "text"
 }
 
-function notShowBtn(){
+function notShowBtn() {
     const showPass = document.querySelector(".showBtn")
     const notShowPass = document.querySelector(".notShowBtn")
     const passInput = document.querySelector(".passInput")
     showPass.style = "display:block; background-color: transparent; border: none; font-size: 20px; cursor: pointer;";
     notShowPass.style = "display:none",
-    passInput.type = "password"
+        passInput.type = "password"
 }
