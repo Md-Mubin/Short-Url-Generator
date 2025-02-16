@@ -14,7 +14,7 @@ router.get("/register", register)
 router.get("/login", login)
 
 router.get("/dashboard", authMiddleware ,async (req,res)=>{
-    res.send("Dash board Page")
+    res.send(req.user)
 })
 
 router.get("/:shortUrl", renderUrl)
