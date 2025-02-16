@@ -4,7 +4,7 @@ const authMiddleware = (req, res, next) => {
     try {
         const tokken = req.cookies
 
-        if (!tokken) return res.status(400).send("Un-Authorized")
+        if (!tokken.access_token) return res.status(400).send("Un-Authorized")
 
         const decoded = jwt.verify(tokken.access_token, process.env.ACSTOKEN)
 
