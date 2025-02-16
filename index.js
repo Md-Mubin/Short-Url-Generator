@@ -6,9 +6,11 @@ const express = require("express")
 const router = require("./route")
 const dbConnect = require("./config/dbConnect")
 const app = express({caseSensitive : true})
+const cookieParser = require("cookie-parser")
 
 // =============== All Uses
 app.use(express.json())
+app.use(cookieParser)
 
 // ejs engine 
 app.set("view engine", "ejs")
