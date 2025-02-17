@@ -24,6 +24,7 @@ const makeUrl = async (req, res) => {
     // ======== short url variable
     const shortedUrl = shortUrlGenerate(bigUrl)
 
+    // ======== if user exists than go to private route
     if (req.user) {
 
         // ======== if the short url already created than update the short url
@@ -56,7 +57,10 @@ const makeUrl = async (req, res) => {
             shortUrl: `${process.env.BASE_URL}/${newShortUrl.shortUrl}`
         })
 
-    } else {
+    } 
+
+    // ======== if user doesn't exists than go to public route
+    else {
 
         // ======== if the short url already created than update the short url
         const existBigUrl = await shortUrlSchema.findOneAndUpdate({ bigUrl }, { $set: { shortUrl: shortedUrl } }, { new: true })
