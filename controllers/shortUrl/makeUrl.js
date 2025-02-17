@@ -31,7 +31,7 @@ const makeUrl = async (req, res) => {
 
         if (existBigUrl) {
         
-            await registerSchema.findByIdAndUpdate(req.user._id, {$push : {shortUrls : existBigUrl._id}})
+            await registerSchema.findByIdAndUpdate(req.user.id, {$push : {shortUrls : existBigUrl._id}})
         
             return res.render("homePage", {
                 msg: "Short Url Updated",
@@ -48,7 +48,7 @@ const makeUrl = async (req, res) => {
 
         newShortUrl.save()
 
-        await registerSchema.findByIdAndUpdate(req.user._id, {$push : {shortUrls : newShortUrl._id}})
+        await registerSchema.findByIdAndUpdate(req.user.id, {$push : {shortUrls : newShortUrl._id}})
 
         res.render("homePage", {
             msg: "Short Url Created Successfully",
