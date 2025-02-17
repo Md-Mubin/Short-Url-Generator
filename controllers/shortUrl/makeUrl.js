@@ -3,6 +3,8 @@ const urlValid = require("../../helpers/urlValid")
 const shortUrlSchema = require("../../modal/shortUrlSchema")
 
 const makeUrl = async (req, res) => {
+
+    // ======== big-url validation
     const { bigUrl } = req.body
 
     if (!bigUrl) {
@@ -18,18 +20,21 @@ const makeUrl = async (req, res) => {
         })
     }
 
+    // ======== short url variable
     const shortedUrl = shortUrlGenerate(bigUrl)
     
+    // ======== if the short url already created than update the short url
     const existBigUrl = await shortUrlSchema.findOneAndUpdate({ bigUrl }, {$set : { shortUrl : shortedUrl}}, {new : true})
 
     if (existBigUrl) {
         return res.render("homePage" ,{
-            msg: "Short Url Created Successfully",
+            msg: "Short Url Updated",
             bigUrl: existBigUrl.bigUrl,
             shortUrl: `${process.env.BASE_URL}/${existBigUrl.shortUrl}`
         })
     }
 
+    // ======== if short url is not created than create
     const newShortUrl = new shortUrlSchema({
         bigUrl: bigUrl,
         shortUrl: shortedUrl
