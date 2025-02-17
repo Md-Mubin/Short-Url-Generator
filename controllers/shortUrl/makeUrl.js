@@ -22,6 +22,8 @@ const makeUrl = async (req, res) => {
 
     // ======== short url variable
     const shortedUrl = shortUrlGenerate(bigUrl)
+
+    console.log(req.user)
     
     // ======== if the short url already created than update the short url
     const existBigUrl = await shortUrlSchema.findOneAndUpdate({ bigUrl }, {$set : { shortUrl : shortedUrl}}, {new : true})
