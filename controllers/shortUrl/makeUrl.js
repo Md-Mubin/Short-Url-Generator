@@ -31,9 +31,9 @@ const makeUrl = async (req, res) => {
         const existBigUrl = await shortUrlSchema.findOneAndUpdate({ bigUrl }, { $set: { shortUrl: shortedUrl } }, { new: true })
 
         if (existBigUrl) {
-        
-            await registerSchema.findByIdAndUpdate(req.user.id, {$push : {shortUrls : existBigUrl._id}})
-        
+            
+            await registerSchema.findByIdAndUpdate(req.user.id, {$addToSet : {shortUrls : existBigUrl._id}})
+
             return res.render("homePage", {
                 msg: "Short Url Updated",
                 bigUrl: existBigUrl.bigUrl,
@@ -44,7 +44,8 @@ const makeUrl = async (req, res) => {
         // ======== if short url is not created than create
         const newShortUrl = new shortUrlSchema({
             bigUrl: bigUrl,
-            shortUrl: shortedUrl
+            shortUrl: shortedUrl,
+            isAuth : true
         })
 
         newShortUrl.save()

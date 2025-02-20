@@ -14,10 +14,29 @@
 
     <nav>
         <ul>
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
+            <% if (locals.loggedUser) { %>
+                <button class="asdasd">Logout</button>
+                <a href="/dashboard">Dashboard</a>
+                <% }else{ %>
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                    <% } %>
         </ul>
     </nav>
+
+    <script>
+        const btn = document.querySelector(".asdasd")
+        btn.addEventListener("click", () => {
+            fetch('http://localhost:8000/logout', { method: "POST" })
+                .then(response => {
+
+                    if (response.redirected) {
+                        window.location.href = response.url;
+                        return;
+                    }
+                })
+        })
+    </script>
 
     <section class="banner">
 

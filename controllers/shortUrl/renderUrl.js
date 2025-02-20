@@ -12,16 +12,4 @@ const renderUrl = async (req,res)=>{
     return res.redirect(existUrl.bigUrl)
 }
 
-const visitHistory = async (req,res)=>{
-    const {shortUrl}= req.params
-
-    const existUrl = await shortUrlSchema.findOne({shortUrl})
-
-    if(!existUrl){
-        return res.render("noPage")
-    }
-
-    return res.send(existUrl)
-}
-
-module.exports = {renderUrl , visitHistory}
+module.exports = {renderUrl}

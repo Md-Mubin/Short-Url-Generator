@@ -54,10 +54,9 @@ const login = async (req, res) => {
                 email, pass
             })
         }
-
-        const logedUser = await registerSchema.findOne({email : registeredUser.email}).select("-pass")
     
-        res.cookie("access_token", access_token).render("loginPage",{ msg:"Login Succesfull", logedUser, access_token})
+        res.cookie("access_token", access_token).redirect("/",{ msg:"Login Succesfull"})
+    
     } catch (error) {
         res.status(400).send("Server Error!")
     }

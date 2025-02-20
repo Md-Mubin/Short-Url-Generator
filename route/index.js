@@ -7,18 +7,22 @@ const router = express.Router()
 
 router.use(process.env.BASE_URL_API, apiRoute)
 
-router.get("/", home)
+router.get("/", authMiddleware, home)
 
 router.get("/register", register)
 
 router.get("/login", login)
+
+router.post("/logout", (req,res)=>{
+    res.clearCookie("access_token")
+    res.redirect("/login")
+})
 
 router.get("/dashboard", authMiddleware ,async (req,res)=>{
     res.send(req.user)
 })
 
 router.get("/:shortUrl", renderUrl)
-router.get("/visithistory/:shortUrl", visitHistory)
 
 router.use((req, res) => {
     res.render("noPage")
