@@ -1,6 +1,6 @@
 const express = require("express")
 const apiRoute = require("./api")
-const {renderUrl, visitHistory} = require("../controllers/shortUrl/renderUrl")
+const {renderUrl} = require("../controllers/shortUrl/renderUrl")
 const { home, register, login } = require("./staticSites")
 const authMiddleware = require("../middlewares/authMiddleware")
 const router = express.Router()

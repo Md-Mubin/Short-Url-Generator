@@ -19,6 +19,13 @@ app.use(express.static(__dirname + "/public"))
 // for sending url 
 app.use(express.urlencoded({extended : false}))
 
+app.use((req, res, next) => {
+    if (req.path === '/favicon.ico') {
+      return res.status(204).end(); // No Content
+    }
+    next();
+  });
+
 // app router
 app.use(router)
 
