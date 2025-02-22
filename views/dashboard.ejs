@@ -20,7 +20,7 @@
     <section class="banner">
         <div class="dashboardRow">
             <div class="profileInfo">
-                <h2 style="text-align: center; margin-bottom: 20px;">User</h2>
+                <h2>User</h2>
                 <table>
                     <tr>
                         <td>Name: </td>
@@ -33,7 +33,29 @@
                 </table>
             </div>
             <div class="historyInfo">
-
+                <h2>History</h2>
+                <% locals.loggedUserInfo.shortUrls.forEach(datas => { %>
+                    <table>
+                        <tr>
+                            <th>Big Url:</th>
+                            <td><%= datas.bigUrl %></td> 
+                        </tr>
+    
+                        <tr>
+                            <th>Short Url:</th>
+                            <td><a style="color: #fff;" href="<%= datas.bigUrl %>" target="_blank"><%= datas.shortUrl %></a></td> 
+                        </tr>
+    
+                        <tr>
+                            <th>Time:</th>
+                            <td>
+                                <% datas.shortUrls.forEach(items => { %>
+                                 <%= locals.clicked %>
+                                <% }) %>
+                            </td> 
+                        </tr>
+                    </table>
+                <% }) %>
             </div>
         </div>
     </section>
