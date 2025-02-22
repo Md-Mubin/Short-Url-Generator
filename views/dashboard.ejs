@@ -12,13 +12,30 @@
 <body>
     <nav>
         <ul>
-            <button class="asdasd">Logout</button>
             <a href="/">Short Url</a>
+            <button class="asdasd">Logout</button>
         </ul>
     </nav>
 
     <section class="banner">
-<%= locals.loggedUserInfo.userName  %>
+        <div class="dashboardRow">
+            <div class="profileInfo">
+                <h2 style="text-align: center; margin-bottom: 20px;">User</h2>
+                <table>
+                    <tr>
+                        <td>Name: </td>
+                        <td><%= locals.loggedUserInfo.userName %></td>
+                    </tr>
+                    <tr>
+                        <td>Email: </td>
+                        <td><%= locals.loggedUserInfo.email %></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="historyInfo">
+
+            </div>
+        </div>
     </section>
 </body>
 
