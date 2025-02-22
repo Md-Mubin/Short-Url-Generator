@@ -8,9 +8,7 @@ const router = express.Router()
 router.use(process.env.BASE_URL_API, apiRoute)
 
 router.get("/", authMiddleware, home)
-
 router.get("/register", register)
-
 router.get("/login", login)
 
 router.post("/logout", (req,res)=>{
@@ -19,7 +17,11 @@ router.post("/logout", (req,res)=>{
 })
 
 router.get("/dashboard", authMiddleware ,async (req,res)=>{
-    res.send(req.user)
+    if(req.user){
+        res.send(req.user)
+    }else{
+        res.redirect("/login")
+    }
 })
 
 router.get("/:shortUrl", renderUrl)
