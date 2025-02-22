@@ -24,38 +24,50 @@
                 <table>
                     <tr>
                         <td>Name: </td>
-                        <td><%= locals.loggedUserInfo.userName %></td>
+                        <td>
+                            <%= locals.loggedUserInfo.userName %>
+                        </td>
                     </tr>
                     <tr>
                         <td>Email: </td>
-                        <td><%= locals.loggedUserInfo.email %></td>
+                        <td>
+                            <%= locals.loggedUserInfo.email %>
+                        </td>
                     </tr>
                 </table>
             </div>
             <div class="historyInfo">
                 <h2>History</h2>
-                <% locals.loggedUserInfo.shortUrls.forEach(datas => { %>
+                <% locals.loggedUserInfo.shortUrls.forEach(datas=> { %>
                     <table>
                         <tr>
                             <th>Big Url:</th>
-                            <td><%= datas.bigUrl %></td> 
+                            <td>
+                                <%= datas.bigUrl %>
+                            </td>
                         </tr>
-    
+
                         <tr>
                             <th>Short Url:</th>
-                            <td><a style="color: #fff;" href="<%= datas.bigUrl %>" target="_blank"><%= datas.shortUrl %></a></td> 
+                            <td><a style="color: #fff;" href="<%= datas.bigUrl %>" target="_blank">
+                                    <%= datas.shortUrl %>
+                                </a></td>
                         </tr>
-    
+
                         <tr>
                             <th>Time:</th>
                             <td>
-                                <% datas.shortUrls.forEach(items => { %>
-                                 <%= locals.clicked %>
-                                <% }) %>
-                            </td> 
+                                <ul >
+                                    <% datas.visitHistory.forEach(items=> { %>
+                                        <li style="list-style: none;">
+                                            <%= items.clicked.toLocaleString() %>
+                                        </li>
+                                        <% }) %>
+                                </ul>
+                            </td>
                         </tr>
                     </table>
-                <% }) %>
+                    <% }) %>
             </div>
         </div>
     </section>

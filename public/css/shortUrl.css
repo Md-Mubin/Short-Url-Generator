@@ -256,6 +256,7 @@ h1{
 table tr th{
   width: 120px;
   text-align: start;
+  vertical-align: top;
 }
 
 table tr{
