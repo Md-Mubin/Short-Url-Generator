@@ -60,11 +60,15 @@
                                 <th>Time:</th>
                                 <td>
                                     <ul>
-                                        <% datas.visitHistory.forEach(items=> { %>
-                                            <li style="list-style: none;">
-                                                <%= items.clicked.toLocaleString() %>
-                                            </li>
-                                            <% }) %>
+                                        <% if (!datas.visitHistory.some(item=> item.clicked)) { %>
+                                            <li style="list-style: none;">No Visit History Found</li>
+                                            <% } else { %>
+                                                <% datas.visitHistory.forEach(items=> { %>
+                                                    <li style="list-style: none;">
+                                                        <%= items.clicked.toLocaleString() %>
+                                                    </li>
+                                                    <% }) %>
+                                                        <% } %>
                                     </ul>
                                 </td>
                             </tr>
