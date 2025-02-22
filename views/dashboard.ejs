@@ -38,36 +38,42 @@
             </div>
             <div class="historyInfo">
                 <h2>History</h2>
-                <% locals.loggedUserInfo.shortUrls.forEach(datas=> { %>
-                    <table>
-                        <tr>
-                            <th>Big Url:</th>
-                            <td>
-                                <%= datas.bigUrl %>
-                            </td>
-                        </tr>
+                <% if (locals.loggedUserInfo) { %>
 
-                        <tr>
-                            <th>Short Url:</th>
-                            <td><a style="color: #fff;" href="<%= datas.bigUrl %>" target="_blank">
-                                    <%= datas.shortUrl %>
-                                </a></td>
-                        </tr>
+                    <% loggedUserInfo.shortUrls.forEach(datas=> { %>
+                        <table>
+                            <tr>
+                                <th>Big Url:</th>
+                                <td>
+                                    <%= datas.bigUrl %>
+                                </td>
+                            </tr>
 
-                        <tr>
-                            <th>Time:</th>
-                            <td>
-                                <ul >
-                                    <% datas.visitHistory.forEach(items=> { %>
-                                        <li style="list-style: none;">
-                                            <%= items.clicked.toLocaleString() %>
-                                        </li>
-                                        <% }) %>
-                                </ul>
-                            </td>
-                        </tr>
-                    </table>
-                    <% }) %>
+                            <tr>
+                                <th>Short Url:</th>
+                                <td><a style="color: #fff;" href="<%= datas.bigUrl %>" target="_blank">
+                                        <%= datas.shortUrl %>
+                                    </a></td>
+                            </tr>
+
+                            <tr>
+                                <th>Time:</th>
+                                <td>
+                                    <ul>
+                                        <% datas.visitHistory.forEach(items=> { %>
+                                            <li style="list-style: none;">
+                                                <%= items.clicked.toLocaleString() %>
+                                            </li>
+                                            <% }) %>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                        <% }) %>
+                            <% }else{ %>
+                                <h2>No History Data Found</h2>
+                                <% } %>
+
             </div>
         </div>
     </section>
