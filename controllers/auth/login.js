@@ -55,7 +55,7 @@ const login = async (req, res) => {
             })
         }
     
-        res.cookie("access_token", access_token).redirect("/",{ msg:"Login Succesfull"})
+        res.cookie("access_token", access_token).redirect("/")
     
     } catch (error) {
         res.status(400).send("Server Error!")
