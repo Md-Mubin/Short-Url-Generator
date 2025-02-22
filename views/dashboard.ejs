@@ -51,9 +51,11 @@
 
                             <tr>
                                 <th>Short Url:</th>
-                                <td><a style="color: #fff;" href="<%= datas.bigUrl %>" target="_blank">
+                                <td>
+                                    <a style="color: #fff;" onmouseover="this.style.color='#000';" onmouseleave="this.style.color='#fff';" href="<%= datas.bigUrl %>" target="_blank">
                                         <%= datas.shortUrl %>
-                                    </a></td>
+                                    </a>
+                                </td>
                             </tr>
 
                             <tr>
