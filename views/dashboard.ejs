@@ -13,7 +13,7 @@
     <nav>
         <ul>
             <a href="/">Short Url</a>
-            <button class="asdasd">Logout</button>
+            <button class="asdasd" onclick="logOutBtn()">Logout</button>
         </ul>
     </nav>
 
@@ -38,7 +38,7 @@
             </div>
             <div class="historyInfo">
                 <h2>History</h2>
-                <% if (locals.loggedUserInfo) { %>
+                <% if (locals.loggedUserInfo && locals.loggedUserInfo.shortUrls.length > 0) { %>
 
                     <% loggedUserInfo.shortUrls.forEach(datas=> { %>
                         <table>
@@ -83,6 +83,19 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function logOutBtn(){
+            fetch('http://localhost:8000/logout', { method: "POST" })
+                .then(response => {
+
+                    if (response.redirected) {
+                        window.location.href = response.url;
+                        return;
+                    }
+                })
+        }
+    </script>
 </body>
 
 </html>
