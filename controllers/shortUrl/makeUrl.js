@@ -37,7 +37,8 @@ const makeUrl = async (req, res) => {
             return res.render("homePage", {
                 msg: "Short Url Updated",
                 bigUrl: existBigUrl.bigUrl,
-                shortUrl: `${process.env.BASE_URL}/${existBigUrl.shortUrl}`
+                shortUrl: `http://localhost:8000/${existBigUrl.shortUrl}`,
+                loggedUser : req.user
             })
         }
 
@@ -55,7 +56,8 @@ const makeUrl = async (req, res) => {
         res.render("homePage", {
             msg: "Short Url Created Successfully",
             bigUrl: newShortUrl.bigUrl,
-            shortUrl: `${process.env.BASE_URL}/${newShortUrl.shortUrl}`
+            shortUrl: `http://localhost:8000/${newShortUrl.shortUrl}`,
+            loggedUser : req.user
         })
     } 
 
@@ -69,7 +71,7 @@ const makeUrl = async (req, res) => {
             return res.render("homePage", {
                 msg: "Short Url Updated",
                 bigUrl: existBigUrl.bigUrl,
-                shortUrl: `${process.env.BASE_URL}/${existBigUrl.shortUrl}`
+                shortUrl: `http://localhost:8000/${existBigUrl.shortUrl}`
             })
         }
 
@@ -84,7 +86,7 @@ const makeUrl = async (req, res) => {
         res.render("homePage", {
             msg: "Short Url Created Successfully",
             bigUrl: newShortUrl.bigUrl,
-            shortUrl: `${process.env.BASE_URL}/${newShortUrl.shortUrl}`
+            shortUrl: `http://localhost:8000/${newShortUrl.shortUrl}`
         })
     }
 }
