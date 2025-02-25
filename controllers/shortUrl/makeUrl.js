@@ -60,7 +60,7 @@ const makeUrl = async (req, res) => {
             loggedUser : req.user
         })
     } 
-
+    
     // ======== if user doesn't exists than go to public route
     else {
 

@@ -13,7 +13,7 @@ const authMiddleware = (req, res, next) => {
                     next()
                 }
                 
-                if (decoded.data) {
+                else if (decoded.data) {
                     req.user = decoded.data
                     next()
                 }

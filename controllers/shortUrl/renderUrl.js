@@ -13,9 +13,9 @@ const renderUrl = async (req, res) => {
         if(shortUrlInfos.isAuth){
             const authUrl = await shortUrlSchema.findByIdAndUpdate(shortUrlInfos._id, {$push : {visitHistory : {clicked : Date.now()}}}, {new : true})
 
-            res.redirect(authUrl.bigUrl)
+            return res.redirect(authUrl.bigUrl)
         }else{
-            res.redirect(shortUrlInfos.bigUrl)
+            return res.redirect(shortUrlInfos.bigUrl)
         }
 
     } catch (error) {
