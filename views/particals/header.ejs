@@ -15,8 +15,8 @@
     <nav>
         <ul>
             <% if (locals.loggedUser) { %>
-                <button class="asdasd">Logout</button>
                 <a href="/dashboard">Dashboard</a>
+                <button onclick="logoutBtn()">Logout</button>
                 <% }else{ %>
                     <a href="/login">Login</a>
                     <a href="/register">Register</a>
@@ -25,8 +25,7 @@
     </nav>
 
     <script>
-        const btn = document.querySelector(".asdasd")
-        btn.addEventListener("click", () => {
+        function logoutBtn(){
             fetch("<%= process.env.BASE_URL %>/logout", { method: "POST" })
                 .then(response => {
 
@@ -35,7 +34,7 @@
                         return;
                     }
                 })
-        })
+        }
     </script>
 
     <section class="banner">
