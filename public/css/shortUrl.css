@@ -18,6 +18,15 @@ body {
   background-color: #f3f4f6;
 }
 
+::-webkit-scrollbar{
+  width: 5px;
+  background-color: #313131;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: #10b981;
+}
+
 h2 {
   font-size: 30px;
   font-family: "future";
