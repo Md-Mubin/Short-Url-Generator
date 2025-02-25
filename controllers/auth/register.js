@@ -79,10 +79,7 @@ const register = async (req, res) => {
         
 
     } catch (error) {
-        res.render("registerPage",{
-            error: "Server Error",
-            userName, email, pass
-        })
+        res.status(500).send({serverErrorMsg : "Server Side Error"})
     }
 }
 

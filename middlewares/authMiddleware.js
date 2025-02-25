@@ -25,7 +25,7 @@ const authMiddleware = (req, res, next) => {
         }
 
     } catch (error) {
-        res.status(500).send("Server Side Error")
+        res.status(500).send({serverErrorMsg : "Server Side Error"})
     }
 
 }

@@ -19,7 +19,7 @@ const renderUrl = async (req, res) => {
         }
 
     } catch (error) {
-        res.send("Server Error!")
+        res.status(500).send({serverErrorMsg : "Server Side Error"})
     }
 }
 

@@ -10,7 +10,13 @@
 
 <body>
     <section class="banner">
-        <h1 style="text-align: center; font-size: 100px; margin-top: 120px;">No Page Found</h1>
+        <h1 style="text-align: center; font-size: 100px; margin-top: 120px;">
+            <% if (locals.serverErrorMsg) { %>
+                <%= locals.serverErrorMsg %>
+                    <% }else{ %>
+                        No Page Found
+                        <% } %>
+        </h1>
     </section>
 </body>
 
