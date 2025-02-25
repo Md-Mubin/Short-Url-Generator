@@ -23,4 +23,4 @@ const renderUrl = async (req, res) => {
     }
 }
 
-module.exports = { renderUrl }
+module.exports = renderUrl
