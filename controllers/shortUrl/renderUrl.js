@@ -20,7 +20,7 @@ const renderUrl = async (req, res) => {
 
     } catch (error) {
         res.status(500).render("noPage", {
-            serverErrorMsg: "Server Side Error" 
+            servErrMsg: "Server Side Error" 
         })
     }
 }
