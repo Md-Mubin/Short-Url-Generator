@@ -83,7 +83,7 @@ const makeUrl = async (req, res) => {
             })
 
             newShortUrl.save()
-
+ 
             res.render("homePage", {
                 msg: "Short Url Created Successfully",
                 bigUrl: newShortUrl.bigUrl,
