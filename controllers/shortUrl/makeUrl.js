@@ -90,10 +90,10 @@ const makeUrl = async (req, res) => {
                 shortUrl: `${process.env.BASE_URL}/${newShortUrl.shortUrl}`
             })
         }
-        
+
     } catch (error) {
         res.status(500).render("noPage", {
-            serverErrorMsg: "Server Side Error"
+            servErrMsg: "Server Side Error"
         })
     }
 }
