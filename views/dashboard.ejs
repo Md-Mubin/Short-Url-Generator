@@ -10,6 +10,8 @@
 </head>
 
 <body>
+
+    <!-- =================== Nav Bar =================== -->
     <nav>
         <ul>
             <a href="/">Short Url</a>
@@ -17,6 +19,7 @@
         </ul>
     </nav>
 
+    <!-- =================== Banner =================== -->
     <section class="banner">
         <div class="dashboardRow">
             <div class="profileInfo">
@@ -36,6 +39,8 @@
                     </tr>
                 </table>
             </div>
+
+            <!-- History -->
             <div class="historyInfo">
                 <h2>History</h2>
                 <% if (locals.loggedUserInfo && locals.loggedUserInfo.shortUrls.length > 0) { %>
@@ -84,6 +89,7 @@
         </div>
     </section>
 
+    <!-- =================== JavaScript Link for Log Out Btn =================== -->
     <script>
         function logOutBtn(){
             fetch('http://localhost:8000/logout', { method: "POST" })
