@@ -94,7 +94,7 @@
     <!-- =================== JavaScript Link for Log Out Btn =================== -->
     <script>
         function logOutBtn(){
-            fetch('http://localhost:8000/logout', { method: "POST" })
+            fetch("<%= process.env.BASE_URL %>/logout", { method: "POST" })
                 .then(response => {
 
                     if (response.redirected) {
