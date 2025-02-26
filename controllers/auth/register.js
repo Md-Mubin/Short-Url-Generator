@@ -41,12 +41,9 @@ const register = async (req, res) => {
             })
         }
 
-        // variable for dynamic passowrd validate error
-        const passwordValidateResult = passwordValidator(pass)
-
-        if (passwordValidateResult) {
+        if (passwordValidator(pass)) {
             return res.render("registerPage",{
-                passError: passwordValidateResult,
+                passError: passwordValidator(pass),
                 userName, email, pass
             })
         }
