@@ -3,8 +3,7 @@ const urlValid = (bigUrl)=>{
 
     if(validation == null){
         return false
-    }
-    else{
+    }else{
         return true
     }
 }

@@ -17,7 +17,7 @@ router.post("/logout", (req,res)=>{
     res.redirect("/login")
 })
 
-router.get("/dashboard", authMiddleware ,async (req,res)=>{
+router.get("/dashboard", authMiddleware, async (req,res)=>{
     if(req.user){
         const loggedUserInfo = await registerSchema.findById(req.user.id).select("-pass").populate("shortUrls")
         res.render("dashboard",{
