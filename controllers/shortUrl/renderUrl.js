@@ -11,6 +11,7 @@ const renderUrl = async (req, res) => {
             return res.render("noPage")
         }
 
+        // if shortUrl's infos auth is true
         if(shortUrlInfos.isAuth){
             const authUrl = await shortUrlSchema.findByIdAndUpdate(shortUrlInfos._id, {$push : {visitHistory : {clicked : Date.now()}}}, {new : true})
 
