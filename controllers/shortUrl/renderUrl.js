@@ -6,6 +6,7 @@ const renderUrl = async (req, res) => {
 
         const shortUrlInfos = await shortUrlSchema.findOne({shortUrl})
 
+        // if shortUrl infos are not available
         if(!shortUrlInfos){
             return res.render("noPage")
         }
