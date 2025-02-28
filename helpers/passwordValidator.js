@@ -1,6 +1,6 @@
 const passwordValidator =(userPass)=>{
 
-    if(userPass < 6 || userPass > 10){
+    if(userPass.length < 6 || userPass.length > 10){
         return "Password must be between 6 - 10 charecters"
     }
 
