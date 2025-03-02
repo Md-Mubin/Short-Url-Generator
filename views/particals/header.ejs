@@ -27,16 +27,7 @@
     </nav>
 
     <script>
-        function logoutBtn(){
-            fetch("<%= process.env.BASE_URL %>/logout", { method: "POST" })
-                .then(response => {
-
-                    if (response.redirected) {
-                        window.location.href = response.url;
-                        return;
-                    }
-                })
-        }
+       
     </script>
 
     <section class="banner">
