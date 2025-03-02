@@ -14,7 +14,6 @@ router.get("/login", login)
 
 router.post("/logout", (req,res)=>{
     res.clearCookie("access_token").redirect("/login")
-    res.redirect("/login")
 })
 
 router.get("/dashboard", authMiddleware, async (req,res)=>{
