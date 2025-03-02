@@ -13,7 +13,7 @@ router.get("/register", register)
 router.get("/login", login)
 
 router.post("/logout", (req,res)=>{
-    res.clearCookie("access_token")
+    res.clearCookie("access_token").redirect("/login")
     res.redirect("/login")
 })
 
